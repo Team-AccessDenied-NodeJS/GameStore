@@ -18,5 +18,11 @@
   "homepage": "https://github.com/Team-AccessDenied-NodeJS/GameStore#readme",
   "dependencies": {
     "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.1.1",
+    "eslint-config-google": "^0.8.0",
+    "eslint-plugin-react": "^7.1.0",
+    "babel-eslint": "^7.2.3"
   }
 }

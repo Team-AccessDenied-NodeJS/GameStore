@@ -1,0 +1,7 @@
+# node_modules folderd
+node_modules/
+gamestore/node_modules/
+
+# PDF files
+gamestore.pdf
+*.pdf
