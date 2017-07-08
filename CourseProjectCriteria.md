@@ -1,11 +1,11 @@
 # Course Project
 _Web applications with Node.js_
 
-This document describes the **course project assignment** for the [Web applications with Node.js course](telerikacademy.com/courses/courses/Details/438) at Telerik Academy.
+This document describes the **course project assignment** for the [Web applications with Node.js course](http://telerikacademy.com/courses/courses/Details/438) at Telerik Academy.
 
 ## Project Description
 
-Design and implement a **Standard Web application** using [Node.js](http://nodejs.org), [Express](expressjs.com) and [MongoDB](https://www.mongodb.com/).  
+Design and implement a **Standard Web application** using [Node.js](https://nodejs.org/en/), [Express](https://expressjs.com/) and [MongoDB](https://www.mongodb.com/).  
 
 It can be a discussion forum, blog system, e-commerce site, online gaming site, social network, or any other web application by your choice.
 
