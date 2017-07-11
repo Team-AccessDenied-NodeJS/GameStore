@@ -51,11 +51,35 @@ html(lang="en")
 			meta(name="description",content="Team project from TelerikAcademy course NodeJS.")
 			meta(name="author",content="purlantov")
 			link(rel="icon",href="../../favicon.ico")
+			script(src="https://code.jquery.com/jquery-3.2.1.min.js"
+			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+			  crossorigin="anonymous")
 			title= title
+			style.
+				body{
+					padding-top:70px;
+				} 
 			block styles
 				link(rel="stylesheet",href="css/bootstrap.min.css")
-	body(data-spy="scroll",data-target=".scrollspy")
+	body
 		block body
-		block scripts
-			script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js")
-script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
+			nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+				.container
+					// Brand and toggle get grouped for better mobile display
+					.navbar-header
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href='/') GameStore
+					// Collect the nav links, forms, and other content for toggling
+					.collapse.navbar-collapse#bs-example-navbar-collapse-1
+						ul.nav.navbar-nav
+							li
+								a(href='about') About
+							li
+								a(href='games') Games
+							li
+								a(href='#') Contact
+			block content
