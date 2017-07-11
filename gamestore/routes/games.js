@@ -1,5 +1,5 @@
 const express = require('express');
-const games = require('../config');
+const games = require('../../games50.json');
 const router = new express.Router();
 
 /* GET games page. */

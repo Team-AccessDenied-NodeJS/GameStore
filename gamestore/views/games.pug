@@ -2,13 +2,8 @@ extends main
 block content
 	.container
 		.row
-			.col-lg-12.text-center
-				h1 
-					| #{title}
-				p.lead 
-					| Games from JSON should go here
-				.gamess
-					ul 
-						li #{gamesArr[0].title}						
-						li #{gamesArr[1].title}
-						li #{gamesArr[2].title}
+			each game in gamesArr
+				.col-md-4
+					img(src=game.image)
+					h3=game.title
+					p='Price: '+game.price+' BGN'
