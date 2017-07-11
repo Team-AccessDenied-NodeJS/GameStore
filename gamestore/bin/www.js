@@ -9,6 +9,7 @@
 const app = require('../app');
 const debug = require('debug')('gamestore:server');
 const http = require('http');
+const colors = require('colors/safe');
 
 /**
  * Get port from environment and store in Express.
@@ -28,7 +29,8 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
+server.listen(port, () =>
+console.log(colors.green(`Server is running at localhost:${port}`)));
 server.on('error', onError);
 server.on('listening', onListening);
 
