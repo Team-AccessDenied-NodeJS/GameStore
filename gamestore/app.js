@@ -7,8 +7,18 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
-// DataBase
 const db = require('./mongodb');
+
+const async = () => {
+  return Promise.resolve();
+};
+
+async()
+  .then(() => db.init())
+  .then((data) => require('./data').init(data))
+  .then((result)=> require('./routes/games').init(result));
+// DataBase
+
 
 // Routers 
 const index = require('./routes/index');
@@ -39,7 +49,7 @@ app.use(function(req, res, next) {
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/games', games);
+app.use('/games', games.router);
 app.use('/about', about);
 
 // catch 404 and forward to error handler
