@@ -13,12 +13,11 @@ const async = () => {
   return Promise.resolve();
 };
 
+// DataBase
 async()
   .then(() => db.init())
   .then((data) => require('./data').init(data))
   .then((result)=> require('./routes/games').init(result));
-// DataBase
-
 
 // Routers 
 const index = require('./routes/index');

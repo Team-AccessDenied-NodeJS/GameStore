@@ -10,13 +10,14 @@ const app = require('../app');
 const debug = require('debug')('gamestore:server');
 const http = require('http');
 const colors = require('colors/safe');
+const config = require('../config');
 
 /**
  * Get port from environment and store in Express.
  */
 // const config = require('../config');
 /* eslint no-process-env: "error" */
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(config.port || '3000');
 app.set('port', port);
 
 /**
