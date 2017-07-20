@@ -7,8 +7,12 @@ const attachTo = (app, data) => {
     // });
 
     app.get('/games', (req, res) => {
+        const arr = data.games.getAll();
+        arr.then((result)=>{
+            console.log(result);
+        });
         // auth
-        return res.render('games', { title: 'Games', gamesArr: [{"title": "Batman", "price":"1000" }] });
+        return res.render('games', { title: 'Games', gamesArr: data.games });
     });
 
     app.get('/games/form', (req, res) => {

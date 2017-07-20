@@ -12,12 +12,6 @@
   };
 
 const init = (data) =>{
-  // Routers 
-  // const index = require('./routes/index');
-  // const users = require('./routes/users');
-  // const games = require('./routes/games');
-  // const about = require('./routes/about');
-
   // view engine setup
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'pug');
@@ -30,14 +24,9 @@ const init = (data) =>{
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
 
+  // Routing
   require('./routers')
         .attachTo(app, data);
-
-
-  // app.use('/', index);
-  // app.use('/users', users);
-  // app.use('/games', games.router);
-  // app.use('/about', about);
 
   // catch 404 and forward to error handler
   app.use(function(req, res, next) {

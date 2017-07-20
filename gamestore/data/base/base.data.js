@@ -7,6 +7,7 @@ class BaseMongoDbData {
         this.validator = validator;
         this.collectionName = this._getCollectionName();
         this.collection = this.db.collection(this.collectionName);
+        
     }
 
     filterBy(props) {
@@ -15,17 +16,7 @@ class BaseMongoDbData {
     }
 
     getAll() {
-        return this.collection.find()
-            .toArray();
-            // .then((models) => {
-            //     if (this.ModelClass.toViewModel) {
-            //         return models.map(
-            //             (model) => this.ModelClass.toViewModel(model)
-            //         );
-            //     }
-
-            //     return models;
-            // });
+        return this.collection.find().toArray();
     }
 
     create(model) {
