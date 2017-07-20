@@ -1,5 +1,5 @@
 const express = require('express');
-const mongo = require('../mongodb');
+const mongo = require('../db/mongodb');
 const router = new express.Router();
 
 const async = () => {
@@ -8,11 +8,9 @@ const async = () => {
 
 /* GET games page. */
 const init = (data)=> {
-router.get('/', function(req, res, next) {
-   const games = { data }.data();
-
-  res.render('games', { title: 'Games', gamesArr: games });
-});
+  router.get('/', function(req, res, next) {
+    res.render('games', { title: 'Games', gamesArr: data });
+  });
 };
 
 module.exports = {

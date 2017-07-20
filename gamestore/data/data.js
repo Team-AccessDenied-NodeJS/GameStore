@@ -1,30 +1,17 @@
-let collection;
+ const ItemsData = require('./items.data');
+// const CategoriesData = require('./categories.data');
+// const TodosData = require('./todos.data');
+// const UsersData = require('./users.data');
+const GameData = require('./games.data');
 
 const init = (db) => {
-    const gamestore = db.collection('gamestore');
-
-    return function getAll() {
-        collection = db.collection('gamestore').find().toArray();
-        // console.log(collection);
-        return collection;
-    };
-
-    // function createGame(title, price, image, description) {
-    //     console.log(gamestore);
-    //     gamestore.insert({
-    //         title: title,
-    //         price: price,
-    //         image: image,
-    //         description: description,
-    //     });
-    // }
-
-    // gamestore.insert({
-    //     title: 'Awesame GAME',
-    //     price: '2000',
-    //     image: 'https://pbs.twimg.com/profile_images/816215321967214592/8he4-b7U.jpg',
-    //     description: 'description',
-    // });
+    return Promise.resolve({
+        games: new GameData(db),
+        // items: new ItemsData(db),
+        // todos: new TodosData(db),
+        // categories: new CategoriesData(db),
+        // users: new UsersData(db),
+    });
 };
 
 module.exports = { init };

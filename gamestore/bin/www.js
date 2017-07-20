@@ -1,96 +1,100 @@
 /* globals process */
 
-// #!/usr/bin/env node
-
 /**
  * Module dependencies.
  */
-
-const app = require('../app');
 const debug = require('debug')('gamestore:server');
 const http = require('http');
 const colors = require('colors/safe');
 const config = require('../config');
 
-/**
- * Get port from environment and store in Express.
- */
-// const config = require('../config');
-/* eslint no-process-env: "error" */
-const port = normalizePort(config.port || '3000');
-app.set('port', port);
+const async = () => {
+  return Promise.resolve();
+};
 
-/**
- * Create HTTP server.
- */
+async()
+  .then(() => require('../db/mongodb').init(config.connectionString))
+  .then((db) => require('../data').init(db))
+  .then((data) => require('../app').init(data))
+  .then((app) => {
+    /**
+     * Get port from environment and store in Express.
+     */
+    const port = normalizePort(config.port || '3000');
+    app.set('port', port);
 
-const server = http.createServer(app);
+    /**
+     * Create HTTP server.
+     */
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+    const server = http.createServer(app);
 
-server.listen(port, () =>
-console.log(colors.green(`Server is running at localhost:${port}`)));
-server.on('error', onError);
-server.on('listening', onListening);
+    /**
+     * Listen on provided port, on all network interfaces.
+     */
 
-/**
- * Normalize a port into a number, string, or false.
- */
+    server.listen(port, () =>
+    console.log(colors.green(`Server is running at localhost:${port}`)));
+    server.on('error', onError);
+    server.on('listening', onListening);
 
-function normalizePort(val) {
-  const portToNormalize = parseInt(val, 10);
+    /**
+     * Normalize a port into a number, string, or false.
+     */
 
-  if (isNaN(portToNormalize)) {
-    // named pipe
-    return val;
-  }
+    function normalizePort(val) {
+      const portToNormalize = parseInt(val, 10);
 
-  if (portToNormalize >= 0) {
-    // port number
-    return portToNormalize;
-  }
+      if (isNaN(portToNormalize)) {
+        // named pipe
+        return val;
+      }
 
-  return false;
-}
+      if (portToNormalize >= 0) {
+        // port number
+        return portToNormalize;
+      }
 
-/**
- * Event listener for HTTP server "error" event.
- */
+      return false;
+    }
 
-function onError(error) {
-  if (error.syscall !== 'listen') {
-    throw error;
-  }
+    /**
+     * Event listener for HTTP server "error" event.
+     */
 
-  const bind = typeof port === 'string'
-    ? 'Pipe ' + port
-    : 'Port ' + port;
+    function onError(error) {
+      if (error.syscall !== 'listen') {
+        throw error;
+      }
 
-  // handle specific listen errors with friendly messages
-  switch (error.code) {
-    case 'EACCES':
-      console.error(bind + ' requires elevated privileges');
-      process.exit(1);
-      break;
-    case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
-      process.exit(1);
-      break;
-    default:
-      throw error;
-  }
-}
+      const bind = typeof port === 'string'
+        ? 'Pipe ' + port
+        : 'Port ' + port;
 
-/**
- * Event listener for HTTP server "listening" event.
- */
+      // handle specific listen errors with friendly messages
+      switch (error.code) {
+        case 'EACCES':
+          console.error(bind + ' requires elevated privileges');
+          process.exit(1);
+          break;
+        case 'EADDRINUSE':
+          console.error(bind + ' is already in use');
+          process.exit(1);
+          break;
+        default:
+          throw error;
+      }
+    }
 
-function onListening() {
-  const addr = server.address();
-  const bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
-}
+    /**
+     * Event listener for HTTP server "listening" event.
+     */
+
+    function onListening() {
+      const addr = server.address();
+      const bind = typeof addr === 'string'
+        ? 'pipe ' + addr
+        : 'port ' + addr.port;
+      debug('Listening on ' + bind);
+    }
+});
