@@ -5,7 +5,6 @@ class BaseMongoDbData {
         this.db = db;
         this.ModelClass = ModelClass;
         this.validator = validator;
-      
         this.collection = this.db.collection('gamestore');
     }
 

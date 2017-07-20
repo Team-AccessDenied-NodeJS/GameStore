@@ -6,8 +6,21 @@ const attachTo = (app, data) => {
     //     return controller.getAll(req, res);
     // });
 
+    // const arr = data.games.filterBy( { title: { $regex: '.*F1.*' } });
+
     app.get('/games', (req, res) => {
         const arr = data.games.getAll();
+        arr.then((result)=>{
+            console.log(result);
+
+        // auth
+            return res.render('games', { title: 'Games', gamesArr: result });
+        });
+    });
+
+    app.get('/games?text', (req, res) => {
+        
+        const arr = data.games.filterBy( { title: { $regex: '.*.*' } });
         arr.then((result)=>{
             console.log(result);
 
