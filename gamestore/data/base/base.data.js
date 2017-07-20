@@ -5,9 +5,8 @@ class BaseMongoDbData {
         this.db = db;
         this.ModelClass = ModelClass;
         this.validator = validator;
-        this.collectionName = this._getCollectionName();
-        this.collection = this.db.collection(this.collectionName);
-        
+      
+        this.collection = this.db.collection('gamestore');
     }
 
     filterBy(props) {
@@ -65,9 +64,9 @@ class BaseMongoDbData {
         return this.validator.isValid(model);
     }
 
-    _getCollectionName() {
-        return this.ModelClass.name.toLowerCase() + 's';
-    }
+    // _getCollectionName() {
+    //     return this.ModelClass.name.toLowerCase();
+    // }
 }
 
 module.exports = BaseMongoDbData;

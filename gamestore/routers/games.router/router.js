@@ -10,9 +10,10 @@ const attachTo = (app, data) => {
         const arr = data.games.getAll();
         arr.then((result)=>{
             console.log(result);
-        });
+
         // auth
-        return res.render('games', { title: 'Games', gamesArr: data.games });
+            return res.render('games', { title: 'Games', gamesArr: result });
+        });
     });
 
     app.get('/games/form', (req, res) => {
