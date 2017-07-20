@@ -11,19 +11,15 @@ const attachTo = (app, data) => {
     app.get('/games', (req, res) => {
         const arr = data.games.getAll();
         arr.then((result)=>{
-            console.log(result);
-
         // auth
             return res.render('games', { title: 'Games', gamesArr: result });
         });
     });
 
-    app.get('/games?text', (req, res) => {
-        
-        const arr = data.games.filterBy( { title: { $regex: '.*.*' } });
+    app.get('/games/search', (req, res) => {
+        const request = req.query.text;
+        const arr = data.games.filterBy( { title: { $regex: `.*${request}.*` } });
         arr.then((result)=>{
-            console.log(result);
-
         // auth
             return res.render('games', { title: 'Games', gamesArr: result });
         });

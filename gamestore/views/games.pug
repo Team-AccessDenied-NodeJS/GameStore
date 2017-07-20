@@ -1,6 +1,6 @@
 extends main
 block content
-	form(action="/games" mathod="POST")
+	form(action="/games/search" mathod="POST")
 							input.form-control(name="text" required type="text" placeholder="Search")
 							button.btn.btn-success
 								| Search
