@@ -26,7 +26,7 @@ class TodosController {
                 return this.data.users.create(bodyUser);
             })
             .then((dbUser) => {
-                return res.redirect('sign-in');
+                return res.redirect('/sign-in');
             })
             .catch((err) => {
                 req.flash('error', err);

@@ -5,7 +5,8 @@ class BaseMongoDbData {
         this.db = db;
         this.ModelClass = ModelClass;
         this.validator = validator;
-        this.collection = this.db.collection('gamestore');
+        // this.collectionName = this._getCollectionName();
+        // this.collection = this.db.collection(this.collectionName);
     }
 
     filterBy(props) {

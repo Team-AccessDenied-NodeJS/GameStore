@@ -14,7 +14,7 @@ const attachTo = (app, data) => {
                             { message: 'You need authentication' }
                         );
 
-                        res.redirect('/auth/sign-in');
+                        res.redirect('/sign-in');
                     });
             }
             return controller.getAll(req, res);
@@ -23,7 +23,7 @@ const attachTo = (app, data) => {
             if (!req.user) {
                 return Promise.resolve()
                     .then(() => {
-                        res.redirect('/auth/sign-in');
+                        res.redirect('/sign-in');
                     });
             }
 
@@ -33,7 +33,7 @@ const attachTo = (app, data) => {
             if (!req.user) {
                 return Promise.resolve()
                     .then(() => {
-                        res.redirect('/auth/sign-in');
+                        res.redirect('/sign-in');
                     });
             }
 
