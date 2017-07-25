@@ -4,10 +4,10 @@ class TodosController {
     }
 
     getSignUpForm(req, res) {
-        return res.render('auth/sign-up');
+        return res.render('sign-up');
     }
     getSignInForm(req, res) {
-        return res.render('auth/sign-in');
+        return res.render('sign-in');
     }
     signOut(req, res) {
         req.logout();
@@ -26,7 +26,7 @@ class TodosController {
                 return this.data.users.create(bodyUser);
             })
             .then((dbUser) => {
-                return res.redirect('/auth/sign-in');
+                return res.redirect('sign-in');
             })
             .catch((err) => {
                 req.flash('error', err);
