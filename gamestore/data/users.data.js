@@ -5,7 +5,6 @@ class UsersData extends BaseData {
     constructor(db) {
         super(db, User, User);
         this.collection = this.db.collection('users');
-
     }
 
     findByUsername(username) {

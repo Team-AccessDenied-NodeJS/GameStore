@@ -5,7 +5,7 @@ const attachTo = (app, data) => {
     const router = new Router();
     const controller = require('./controller').init(data);
 
-    router
+   router
         .get('/sign-up', (req, res) => {
             return controller.getSignUpForm(req, res);
         })
@@ -21,9 +21,8 @@ const attachTo = (app, data) => {
         .post('/sign-in', passport.authenticate('local', {
             successRedirect: '/',
             failureRedirect: '/sign-in',
-            failureFlash: true,
+            failureFlash: false,
         }));
-
     app.use('/', router);
 };
 

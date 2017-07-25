@@ -5,7 +5,7 @@ class GamesData extends BaseData {
     constructor(db) {
         super(db, Game, Game);
 
-        this.collection = this.db.collection('gamestores');
+        this.collection = this.db.collection('gamestore');
     }
 
     _isModelValid(model) {

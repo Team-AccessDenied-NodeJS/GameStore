@@ -24,6 +24,8 @@ const init = (data) =>{
   app.use(cookieParser());
   app.use(express.static(path.join(__dirname, 'public')));
 
+  require('./config/auth.config')(app, data);
+
   // Routing
   require('./routers')
         .attachTo(app, data);

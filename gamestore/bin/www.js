@@ -18,7 +18,8 @@ const async = () => {
 // async()
 //   .then(() => require('../db/mongodb').init(config.connectionString))
 //   .then((db)=>{
-//     // console.log(db.collection('gamestore').find().toArray().then((result)=>{return result;}));
+// console.log(db.collection('gamestore').find()
+// .toArray().then((result)=>{return result;}));
 //     // const arr = db.collection('gamestore').find().toArray();
 //     // arr.then((result)=>console.log(result));
 //   });
