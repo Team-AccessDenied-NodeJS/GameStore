@@ -1,13 +1,4 @@
 const attachTo = (app, data) => {
-    const controller = require('./controller').init(data);
-
-    // app.get('/games', (req, res) => {
-    //     // auth
-    //     return controller.getAll(req, res);
-    // });
-
-    // const arr = data.games.filterBy( { title: { $regex: '.*F1.*' } });
-
     app.get('/games', (req, res) => {
         const arr = data.games.getAll();
         arr.then((result)=>{
@@ -18,10 +9,14 @@ const attachTo = (app, data) => {
 
     app.get('/games/search', (req, res) => {
         const request = req.query.text;
-        const arr = data.games.filterBy( { title: { $regex: `.*${request}.*` } });
+        const arr = data.games.filterBy(
+            {
+                 title: { $regex: `.*${request}.*` },
+            }
+        );
         arr.then((result)=>{
         // auth
-            return res.render('games', { title: 'Games', gamesArr: result });
+            return res.render('search', { title: 'Games', gamesArr: result });
         });
     });
 
