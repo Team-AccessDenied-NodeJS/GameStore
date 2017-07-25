@@ -3,6 +3,10 @@ class TodosController {
         this.data = data;
     }
 
+    getAuthenticatedForm(req, res) {
+        return res.render('authenticated');
+    }
+
     getSignUpForm(req, res) {
         return res.render('sign-up');
     }

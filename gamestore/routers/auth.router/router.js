@@ -6,6 +6,13 @@ const attachTo = (app, data) => {
     const controller = require('./controller').init(data);
 
    router
+        .get('/authenticated', (req, res) => {
+            console.log(req.user);
+            if (req.user !== undefined) {
+                return controller.getAuthenticatedForm(req, res);
+            }
+            return controller.getSignInForm(req, res);
+        })
         .get('/sign-up', (req, res) => {
             return controller.getSignUpForm(req, res);
         })
@@ -19,9 +26,9 @@ const attachTo = (app, data) => {
             return controller.signUp(req, res);
         })
         .post('/sign-in', passport.authenticate('local', {
-            successRedirect: '/',
+            successRedirect: '/authenticated',
             failureRedirect: '/sign-in',
-            failureFlash: false,
+            failureFlash: true,
         }));
     app.use('/', router);
 };

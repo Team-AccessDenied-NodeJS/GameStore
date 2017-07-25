@@ -2,6 +2,7 @@ const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const { Strategy } = require('passport-local').Strategy;
+const flash = require('connect-flash');
 
 const configAuth = (app, data) => {
     passport.use(new Strategy(
@@ -9,7 +10,7 @@ const configAuth = (app, data) => {
                 const loginName = data.users.findByUsername(username);
                 return loginName.then((user) => {
                             if (user.password !== password) {
-                                done(new Error('Invalid Password'));
+                                return done(null, false, { message: 'Incorrect password.' });
                             }
                             return done(null, user);
                         })
@@ -23,6 +24,7 @@ const configAuth = (app, data) => {
     app.use(session({ secret: 'Access Denied' }));
     app.use(passport.initialize());
     app.use(passport.session());
+    app.use(flash());
 
     passport.serializeUser((user, done) => {
         done(null, user._id);
