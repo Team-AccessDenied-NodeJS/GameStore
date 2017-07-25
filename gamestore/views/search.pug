@@ -1,0 +1,14 @@
+extends main
+block content
+	form(action="/games/search" mathod="POST")
+							input.form-control(name="text" required type="text" placeholder="Search")
+							button.btn.btn-success
+								| Search
+	.container
+		.row
+			each game in gamesArr
+				.col-md-4
+					a(href='#')
+						img(src=game.image)
+						h3=game.title
+						p='Price: '+game.price+' BGN'
