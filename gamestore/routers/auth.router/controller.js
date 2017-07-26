@@ -4,7 +4,8 @@ class TodosController {
     }
 
     getAuthenticatedForm(req, res) {
-        return res.render('authenticated');
+        console.log(req.user);
+        return res.render('authenticated', { user: req.user });
     }
 
     getSignUpForm(req, res) {

@@ -8,7 +8,7 @@ const attachTo = (app, data) => {
    router
         .get('/authenticated', (req, res) => {
             console.log(req.user);
-            if (req.user !== undefined) {
+            if (req.user) {
                 return controller.getAuthenticatedForm(req, res);
             }
             return controller.getSignInForm(req, res);
