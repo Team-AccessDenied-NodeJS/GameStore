@@ -3,11 +3,13 @@ const attachTo = (app, data) => {
         const arr = data.games.getAll();
         arr.then((result)=>{
         // auth
-            return res.render('games', { title: 'Games', gamesArr: result, user: req.user });
+            return res.render('games', { title: 'Games',
+                gamesArr: result, user: req.user });
         });
     });
 
-    app.get('/games/search', (req, res) => {
+    app.get('/search', (req, res) => {
+        console.log(req.query.text);
         const request = req.query.text;
         const arr = data.games.filterBy(
             {
@@ -16,7 +18,8 @@ const attachTo = (app, data) => {
         );
         arr.then((result)=>{
         // auth
-            return res.render('search', { title: 'Games', gamesArr: result, user: req.user });
+            return res.render('search', { title: 'Games',
+                gamesArr: result, user: req.user });
         });
     });
 

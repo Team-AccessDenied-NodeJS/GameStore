@@ -51,19 +51,25 @@ block body
 								a(href='/sign-up') Sign up
 			block content
 	block content
-		form(action="/games/search" mathod="POST")
+		form(action="/search" mathod="POST")
 			input.form-control(name="text" required type="text" placeholder="Search")
 			button.btn.btn-success
 				| Search
 		.container
 			.row
 				div.col-lg-12
-					h1.page-header=game.title
-						small  price #{game.price}
+					h2.page-header=game.title
+						small &nbsp;&nbsp;&nbsp; price #{game.price}&nbsp;BGN
 			.row
 				.col-md-8
 					img(src=game.image) 
 				.col-md-4
 					h3 Description
-					p=game.description               
-			a(class='button' href='/games') Back
+					p=game.description
+			br
+			br
+			a(href='/games')
+				button(type='button' class='btn btn-info') Back
+		br
+		br
+		br

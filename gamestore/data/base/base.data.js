@@ -9,11 +9,6 @@ class BaseMongoDbData {
         // this.collection = this.db.collection(this.collectionName);
     }
 
-    filterBy(props) {
-        return this.collection.find(props)
-            .toArray();
-    }
-
     getAll() {
         return this.collection.find().toArray();
     }

@@ -59,7 +59,8 @@ block body
 			.row
 				each game in gamesArr
 					.col-md-4
-						a(href='#')
+						- var href = '/games/' + game._id;
+						a(href=href)
 							img(src=game.image)
 							h3=game.title
 							p='Price: '+game.price+' BGN'

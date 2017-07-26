@@ -8,6 +8,10 @@ class GamesData extends BaseData {
         this.collection = this.db.collection('gamestores');
     }
 
+    filterBy(props) {
+        return this.collection.find(props).toArray();
+    }
+
     _isModelValid(model) {
         // custom validation 
         return super._isModelValid(model);
