@@ -3,7 +3,7 @@ const attachTo = (app, data) => {
         const arr = data.games.getAll();
         arr.then((result)=>{
         // auth
-            return res.render('games', { title: 'Games', gamesArr: result });
+            return res.render('games', { title: 'Games', gamesArr: result, user: req.user });
         });
     });
 
@@ -16,7 +16,7 @@ const attachTo = (app, data) => {
         );
         arr.then((result)=>{
         // auth
-            return res.render('search', { title: 'Games', gamesArr: result });
+            return res.render('search', { title: 'Games', gamesArr: result, user: req.user });
         });
     });
 

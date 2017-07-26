@@ -4,7 +4,7 @@ const attachTo = (app, data) => {
         console.log('REQ: ' + req.params.id);
         arr.then((result)=>{
             console.log(result);
-            return res.render('game', { game: result });
+            return res.render('game', { game: result, user: req.user });
         });
     });
 };

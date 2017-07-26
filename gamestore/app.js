@@ -7,9 +7,9 @@
   const bodyParser = require('body-parser');
   const app = express();
 
-  const async = () => {
-    return Promise.resolve();
-  };
+  // const async = () => {
+  //   return Promise.resolve();
+  // };
 
 const init = (data) =>{
   // view engine setup
