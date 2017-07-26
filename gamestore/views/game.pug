@@ -5,9 +5,14 @@ block content
         button.btn.btn-success
             | Search
     .container
-        p=game.title
-        p=game.price
-        img(src=game.image)
-        p=game.description
-        
+        .row
+            div.col-lg-12
+                h1.page-header=game.title
+                    small  price #{game.price}
+        .row
+            .col-md-8
+                img(src=game.image) 
+            .col-md-4
+                h3 Description
+                p=game.description               
         a(class='button' href='/games') Back
