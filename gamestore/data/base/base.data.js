@@ -23,6 +23,11 @@ class BaseMongoDbData {
             });
     }
 
+    filterBy(props) {
+        return this.collection.find(props)
+            .toArray();
+    }
+
     findById(id) {
         return this.collection.findOne({
             _id: new ObjectID(id),
@@ -30,7 +35,7 @@ class BaseMongoDbData {
     }
 
     findOrCreateBy(props) {
-        return this.filterBy(props)
+        return this.collection.filterBy(props)
             .then(([model]) => {
                 if (!model) {
                     model = {};
