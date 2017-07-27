@@ -19,12 +19,12 @@ block body
 						li
 							a(href='/games') Games
 						li
-							a(href='#') Contact
+							a(href='#') Contact	
 					ul.nav.navbar-nav.navbar-right
-						//- For User
+						//- For users
 						if user.admin
 							li
-								a(href='authenticated') admin
+								a(href='/authenticated') admin
 						if user
 							li 
 								a(href='/log-out') Log out
@@ -33,19 +33,11 @@ block body
 							li 
 								a(href='/sign-in') Sign in
 							li
-								a(href='/sign-up') Sign up
-		block content
+								a(href='/sign-up') Sign up							
+			block content
 	block content
-		form(action="/search" mathod="POST")
-								input.form-control(name="text" required type="text" placeholder="Search")
-								button.btn.btn-success
-									| Search
 		.container
 			.row
-				each game in gamesArr
-					.col-md-4
-						- var href = '/games/' + game._id;
-						a(href=href)
-							img(src=game.image)
-							h3=game.title
-							p='Price: '+game.price+' BGN'
+				.col-lg-12.text-center
+					h1 
+						| Admin

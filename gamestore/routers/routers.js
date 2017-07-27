@@ -14,6 +14,9 @@ const attachTo = (app, data) => {
     });
 
     app.get('/log-out', function(req, res) {
+        // req.user.shoppinglist.push({ title: 'game', price: 200 });
+        // console.log(req.user.shoppingList);
+        data.users.updateById(req.user);
         req.logout();
         res.redirect('/');
     });

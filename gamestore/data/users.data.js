@@ -5,7 +5,7 @@ class UsersData extends BaseData {
     constructor(db) {
         super(db, User, User);
         this.collection = this.db.collection('users');
-        this.shoppingList = [];
+        this.shoppinglist = [];
         this.isAdmin = false;
     }
 
@@ -31,11 +31,11 @@ class UsersData extends BaseData {
     }
 
     addToShoppingList(game) {
-        this.shoppingList.push(game);
+        this.shoppinglist.push(game);
     }
 
     getShoppingList() {
-        return this.shoppingList;
+        return this.shoppinglist;
     }
 
     setAdmin(role) {

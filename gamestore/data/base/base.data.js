@@ -17,6 +17,8 @@ class BaseMongoDbData {
         if (!this._isModelValid(model)) {
             return Promise.reject('Validation failed!');
         }
+        model.shoppinglist = [];
+        model.admin = false;
         return this.collection.insert(model)
             .then(() => {
                 return model;

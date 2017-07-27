@@ -4,30 +4,25 @@ class TodosController {
     }
 
     getAuthenticatedForm(req, res) {
-        console.log(req.user);
         return res.render('authenticated', { user: req.user });
     }
-
+    getAdminArea(req, res) {
+        return res.render('admin-area', { user: req.user });
+    }
     getSignUpForm(req, res) {
         return res.render('sign-up');
     }
     getSignInForm(req, res) {
         return res.render('sign-in');
     }
-    signOut(req, res) {
-        req.logout();
-        return res.redirect('/');
-    }
 
     signUp(req, res) {
         const bodyUser = req.body;
-
         this.data.users.findByUsername(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
                     throw new Error('User already exists');
                 }
-
                 return this.data.users.create(bodyUser);
             })
             .then((dbUser) => {

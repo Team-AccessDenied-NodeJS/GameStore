@@ -7,7 +7,9 @@ const attachTo = (app, data) => {
 
    router
         .get('/authenticated', (req, res) => {
-            console.log(req.user);
+            if (req.user.admin) {
+                return controller.getAdminArea(req, res);
+            }
             if (req.user) {
                 return controller.getAuthenticatedForm(req, res);
             }
@@ -18,9 +20,6 @@ const attachTo = (app, data) => {
         })
         .get('/sign-in', (req, res) => {
             return controller.getSignInForm(req, res);
-        })
-        .post('/sign-out', (req, res) => {
-            return controller.signOut(req, res);
         })
         .post('/sign-up', (req, res) => {
             return controller.signUp(req, res);
