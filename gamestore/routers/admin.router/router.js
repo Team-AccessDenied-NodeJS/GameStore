@@ -9,10 +9,7 @@ const attachTo = (app, data) => {
                      image: req.body.image,
                      price: req.body.price };
         data.games.collection.insert(game);
-        return res.redirect('/authenticated',
-                                { user: req.user,
-                                  users: data.users,
-                                  games: req.games });
+        return res.redirect('/authenticated');
     });
 
     app.get('/admin-users', (req, res) => {
