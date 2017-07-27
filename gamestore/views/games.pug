@@ -22,12 +22,16 @@ block body
 							a(href='#') Contact
 					ul.nav.navbar-nav.navbar-right
 						//- For User
-						if user.admin
-							li
-								a(href='authenticated') admin
+						
 						if user
-							li 
-								a(href='/log-out') Log out
+							if user.admin
+								li
+									a(href='authenticated') admin
+								li 
+									a(href='/log-out') Log out
+							else
+								li 
+									a(href='/log-out') Log out
 						//- For Guest
 						else
 							li 

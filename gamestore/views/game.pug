@@ -23,14 +23,20 @@ block body
 					ul.nav.navbar-nav.navbar-right
 						//- For users
 						if user
-							li 
-								a(href='/log-out') Log out
-						//- For guests
+							if user.admin
+								li
+									a(href='authenticated') admin
+								li 
+									a(href='/log-out') Log out
+							else
+								li 
+									a(href='/log-out') Log out
+						//- For Guest
 						else
 							li 
 								a(href='/sign-in') Sign in
 							li
-								a(href='/sign-up') Sign up	
+								a(href='/sign-up') Sign up
 	block content
 		form(action="/search" mathod="POST")
 			input.form-control(name="text" required type="text" placeholder="Search")

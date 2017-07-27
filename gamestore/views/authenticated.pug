@@ -20,8 +20,21 @@ block body
 								li
 									a(href='#') Contact	
 							ul.nav.navbar-nav.navbar-right
-								li 
-									a(href='/log-out') Log out
+								if user
+									if user.admin
+										li
+											a(href='authenticated') admin
+										li 
+											a(href='/log-out') Log out
+									else
+										li 
+											a(href='/log-out') Log out
+								//- For Guest
+								else
+									li 
+										a(href='/sign-in') Sign in
+									li
+										a(href='/sign-up') Sign up
 	.container
 		.row
 			.col-lg-12.text-center
