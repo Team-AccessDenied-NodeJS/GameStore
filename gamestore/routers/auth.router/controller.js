@@ -4,7 +4,10 @@ class TodosController {
     }
 
     getAuthenticatedForm(req, res) {
-        return res.render('authenticated', { user: req.user });
+        return res.render('authenticated',
+                            { user: req.user,
+                              users: this.data.users,
+                              games: req.games });
     }
     getAdminArea(req, res) {
         return res.render('admin-area', { user: req.user });

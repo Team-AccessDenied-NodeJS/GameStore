@@ -1,7 +1,6 @@
 extends main
 block body
 	#user
-
 		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 			.container
 				// Brand and toggle get grouped for better mobile display
@@ -23,33 +22,31 @@ block body
 							a(href='#') Contact	
 					ul.nav.navbar-nav.navbar-right
 						//- For users
+						if user.admin
+							li
+								a(href='/authenticated') admin
 						if user
-							if user.admin
-								li
-									a(href='/authenticated') admin
-								li 
-									a(href='/log-out') Log out
-							else
-								li 
-									a(href='/log-out') Log out
+							li 
+								a(href='/log-out') Log out
 						//- For Guest
 						else
 							li 
 								a(href='/sign-in') Sign in
 							li
-								a(href='/sign-up') Sign up
-
+								a(href='/sign-up') Sign up							
+			block content
 	block content
-		form(action="/search" mathod="POST")
-								input.form-control(name="text" required type="text" placeholder="Search")
-								button.btn.btn-success
-									| Search
 		.container
 			.row
-				each game in gamesArr
-					.col-md-4
-						- var href = '/games/' + game._id;
-						a(href=href)
-							img(src=game.image)
-							h3=game.title
-							p='Price: '+game.price+' BGN'
+				.col-lg-12.text-center
+
+					h3 Add game
+					form(name="input", action='/add-game', method="post")
+						| Game title:
+						input(type="text", name="title")
+						| Game image url:
+						input(type="text", name="image")
+						| Game price:
+						input(type="text", name="price")
+						input(type="submit", value="Submit")
+

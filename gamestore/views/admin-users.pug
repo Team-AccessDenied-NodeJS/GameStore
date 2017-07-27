@@ -1,7 +1,6 @@
 extends main
 block body
 	#user
-
 		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 			.container
 				// Brand and toggle get grouped for better mobile display
@@ -23,33 +22,41 @@ block body
 							a(href='#') Contact	
 					ul.nav.navbar-nav.navbar-right
 						//- For users
+						if user.admin
+							li
+								a(href='/authenticated') admin
 						if user
-							if user.admin
-								li
-									a(href='/authenticated') admin
-								li 
-									a(href='/log-out') Log out
-							else
-								li 
-									a(href='/log-out') Log out
+							li 
+								a(href='/log-out') Log out
 						//- For Guest
 						else
 							li 
 								a(href='/sign-in') Sign in
 							li
-								a(href='/sign-up') Sign up
-
+								a(href='/sign-up') Sign up							
+			block content
 	block content
-		form(action="/search" mathod="POST")
-								input.form-control(name="text" required type="text" placeholder="Search")
-								button.btn.btn-success
-									| Search
 		.container
 			.row
-				each game in gamesArr
-					.col-md-4
-						- var href = '/games/' + game._id;
-						a(href=href)
-							img(src=game.image)
-							h3=game.title
-							p='Price: '+game.price+' BGN'
+				.col-lg-12.text-center
+					h3 Change user
+					- var userList = users
+					each u in users
+						if u.admin
+							h4 #{u.username} ---------------
+								form(action='/make-user-admin', method='post')
+									- var obj = u
+									input(type='hidden', name='to_user', value=obj)
+									input(type="checkbox", name="is_admin", checked, value="true")
+									input(type='submit')
+							br
+							br
+						else
+							h4 #{u.username} ---------------
+								form(action='/make-user-admin', method='post')
+									- var obj = u
+									input(type='hidden', name='to_user', value=obj)
+									input(type="checkbox", name="is_admin", value="false")
+									input(type='submit')
+							br
+							br
