@@ -25,12 +25,12 @@ block body
 						if user
 							if user.admin
 								li
-									a(href='/authenticated') admin
+									a(href='authenticated') admin
 								li 
 									a(href='/log-out') Log out
 							else
 								li
-									a(href='/shopping-cart') shopping cart
+									a(href='shopping-cart') shopping cart
 								li 
 									a(href='/log-out') Log out
 								
@@ -39,35 +39,14 @@ block body
 							li 
 								a(href='/sign-in') Sign in
 							li
-								a(href='/sign-up') Sign up
+								a(href='/sign-up') Sign up							
+			block content
 	block content
-		form(action="/search" mathod="POST")
-			input.form-control(name="text" required type="text" placeholder="Search")
-			button.btn.btn-success
-				| Search
 		.container
 			.row
-				div.col-lg-12
-					h2.page-header=game.title
-						small &nbsp;&nbsp;&nbsp; price #{game.price}&nbsp;BGN
-			.row
-				.col-md-8
-					img(src=game.image) 
-					if user
-						unless user.admin
-							form(action='/add-to-cart', method="POST")
-								- var obj = game
-								input(type = 'hidden',name = 'game', value = obj)
-								button.btn.btn-success
-									| add to cart
-							
-				.col-md-4
-					h3 Description
-					p=game.description
-			br
-			br
-			a(href='/games')
-				button(type='button' class='btn btn-info') Back
-		br
-		br
-		br
+				each game in list
+					.col-md-4
+						img(src=game.image)
+						h3
+							=game.title
+						p Price #{game.price} BGN
