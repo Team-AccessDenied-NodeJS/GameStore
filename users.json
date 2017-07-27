@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5977312e4c98e12aa5d34374"},"username":"asd","password":"asd1","admin":"false","shoppinglist":"[]"}
+{"_id":{"$oid":"597731764c98e12aa5d34375"},"username":"dankata","password":"parolata","admin":"false","shoppinglist":"[]"}
+{"_id":{"$oid":"5979b4585145d86dd79f9ae6"},"username":"pavel","password":"pavel","admin":"true","shoppinglist":"[]"}
+{"_id":{"$oid":"5979b9224ca8e471044d8ce0"},"username":"daniel","password":"dakata","admin":"true","shoppinglist":"[]"}
