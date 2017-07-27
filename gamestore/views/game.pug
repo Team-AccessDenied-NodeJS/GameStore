@@ -25,12 +25,15 @@ block body
 						if user
 							if user.admin
 								li
-									a(href='authenticated') admin
+									a(href='/authenticated') admin
 								li 
 									a(href='/log-out') Log out
 							else
+								li
+									a(href='/shopping-cart') shopping cart
 								li 
 									a(href='/log-out') Log out
+								
 						//- For Guest
 						else
 							li 
@@ -50,6 +53,14 @@ block body
 			.row
 				.col-md-8
 					img(src=game.image) 
+					if user
+						unless user.admin
+							form(action='/add-to-cart', method="POST")
+								- var obj = game
+								input(type = 'hidden',name = 'game', value = obj)
+								button.btn.btn-success
+									| add to cart
+							
 				.col-md-4
 					h3 Description
 					p=game.description

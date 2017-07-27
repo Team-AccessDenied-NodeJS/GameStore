@@ -9,7 +9,6 @@ const attachTo = (app, data) => {
     });
 
     app.get('/search', (req, res) => {
-        console.log(req.query.text);
         const request = req.query.text;
         const arr = data.games.filterBy(
             {

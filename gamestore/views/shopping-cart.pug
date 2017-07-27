@@ -1,7 +1,6 @@
 extends main
 block body
 	#user
-
 		nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
 			.container
 				// Brand and toggle get grouped for better mobile display
@@ -34,24 +33,20 @@ block body
 									a(href='shopping-cart') shopping cart
 								li 
 									a(href='/log-out') Log out
+								
 						//- For Guest
 						else
 							li 
 								a(href='/sign-in') Sign in
 							li
-								a(href='/sign-up') Sign up
-
+								a(href='/sign-up') Sign up							
+			block content
 	block content
-		form(action="/search" mathod="POST")
-								input.form-control(name="text" required type="text" placeholder="Search")
-								button.btn.btn-success
-									| Search
 		.container
 			.row
-				each game in gamesArr
+				each game in list
 					.col-md-4
-						- var href = '/games/' + game._id;
-						a(href=href)
-							img(src=game.image)
-							h3=game.title
-							p='Price: '+game.price+' BGN'
+						img(src=game.image)
+						h3
+							=game.title
+						p Price #{game.price} BGN
