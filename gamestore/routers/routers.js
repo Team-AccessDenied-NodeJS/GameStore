@@ -27,7 +27,6 @@ const attachTo = (app, data) => {
                 list.forEach(function(game) {
                     array.push(JSON.parse(game));
                 });
-                console.log(array);
                 return res.render('shopping-cart',
                     { user: req.user, list: array });
             }
@@ -39,6 +38,22 @@ const attachTo = (app, data) => {
             req.user.shoppinglist.push(game);
             data.users.updateById(req.user);
             return res.redirect('/games');
+        }
+        return controller.getSignInForm(req, res);
+    });
+
+    app.post('/buy', function(req, res) {
+        console.log('inside buy');
+        if (req.user) {
+            const game = req.body.game;
+            const index = req.user.shoppinglist.indexOf(game);
+            console.log(index);
+            console.log(req.user.shoppinglist[index]);
+            if (index > -1) {
+                req.user.shoppinglist.splice(index, 1);
+            }
+            data.users.updateById(req.user);
+            return res.redirect('/shopping-cart');
         }
         return controller.getSignInForm(req, res);
     });
