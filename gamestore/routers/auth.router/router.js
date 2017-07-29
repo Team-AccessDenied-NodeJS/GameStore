@@ -3,12 +3,22 @@ const passport = require('passport');
 
 const attachTo = (app, data) => {
     const router = new Router();
+
     const controller = require('./controller').init(data);
+     app.get('/log-out', function(req, res) {
+        // req.user.shoppinglist.push({ title: 'game', price: 200 });
+        // console.log(req.user.shoppingList);
+        // data.users.updateById(req.user);
+        req.logout();
+        res.redirect('/');
+    });
 
    router
         .get('/authenticated', (req, res) => {
-            if (req.user.admin) {
-                return controller.getAdminArea(req, res);
+            if (req.user) {
+                if (req.user.admin) {
+                    return controller.getAdminArea(req, res);
+                }
             }
             if (req.user) {
                 return controller.getAuthenticatedForm(req, res);
