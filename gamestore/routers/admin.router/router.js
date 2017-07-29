@@ -13,7 +13,7 @@ const attachTo = (app, data) => {
     app.get('/admin-users', (req, res)=> {
         return controller.getAdminUsers(req, res);
     });
-
+           const props = new RegExp();
     app.post('/make-user-admin', (req, res)=>{
         return controller.makeUsersAdmin(req, res);
     });
