@@ -5,12 +5,10 @@ class BaseMongoDbData {
         this.db = db;
         this.ModelClass = ModelClass;
         this.validator = validator;
-        // this.collectionName = this._getCollectionName();
-        // this.collection = this.db.collection(this.collectionName);
     }
 
     getAll() {
-        return this.collection.find({}).toArray();
+        return this.collection.find().toArray();
     }
 
     create(model) {
@@ -36,20 +34,20 @@ class BaseMongoDbData {
         });
     }
 
-    findOrCreateBy(props) {
-        return this.collection.filterBy(props)
-            .then(([model]) => {
-                if (!model) {
-                    model = {};
-                    return this.collection.insert(model)
-                        .then(() => {
-                            return model;
-                        });
-                }
+    // findOrCreateBy(props) {
+    //     return this.collection.filterBy(props)
+    //         .then(([model]) => {
+    //             if (!model) {
+    //                 model = {};
+    //                 return this.collection.insert(model)
+    //                     .then(() => {
+    //                         return model;
+    //                     });
+    //             }
 
-                return model;
-            });
-    }
+    //             return model;
+    //         });
+    // }
 
     updateById(model) {
         return this.collection.updateOne({
@@ -65,10 +63,6 @@ class BaseMongoDbData {
 
         return this.validator.isValid(model);
     }
-
-    // _getCollectionName() {
-    //     return this.ModelClass.name.toLowerCase();
-    // }
 }
 
 module.exports = BaseMongoDbData;

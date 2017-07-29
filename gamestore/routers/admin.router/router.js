@@ -35,7 +35,7 @@ const attachTo = (app, data) => {
         }
         return res;
     });
-
+           const props = new RegExp();
     app.post('/make-user-admin', (req, res)=>{
         const isAdmin = !!req.body.is_admin;
         const currentUser =JSON.parse(req.body.to_user);
