@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const BaseMongoDbData = require('../gamestore/data/base/base.data');
+const GamesData = require('../../data/games.data');
 const sinon = require('sinon');
 
 describe('BaseMongoDbData', () => {
@@ -35,7 +35,7 @@ describe('BaseMongoDbData', () => {
                 return { find };
             });
 
-            data = new BaseMongoDbData(db, ModelClass, validator);
+            data = new GamesData(db, ModelClass, validator);
         });
 
         afterEach(() => {
@@ -56,7 +56,7 @@ describe('BaseMongoDbData', () => {
                 return { findOne };
             });
 
-            data = new BaseMongoDbData(db);
+            data = new GamesData(db);
         });
 
         afterEach(() => {
