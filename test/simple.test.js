@@ -1,25 +1,76 @@
 const { expect } = require('chai');
+const BaseMongoDbData = require('../gamestore/data/base/base.data');
+const sinon = require('sinon');
 
-it('should return 4', ()=> {
-    // Arrange
-    const x = 2;
-    const y = 2;
+describe('BaseMongoDbData', () => {
+    const db = {
+        collection: () => { },
+    };
 
-    // Act
-    const expected = x + y;
+    let data = null;
 
-    // Assert
-    expect(expected).to.eq(4);
-});
+    const ModelClass = class {};
 
-it('should return 15', ()=> {
-    // Arrange
-    const x = 5;
-    const y = 3;
+    const validator = null;
 
-    // Act
-    const expected = x * y;
+    let items = [];
 
-    // Assert
-    expect(expected).to.eq(15);
+    const find = () => {
+        return {
+            toArray() {
+                return Promise.resolve(this.items);
+            },
+        };
+    };
+
+    const findOne = (props) => {
+        const id = props._id;
+        const item = items.find((i) => i.id === id);
+        return Promise.resolve(item || null);
+    };
+
+    describe('expect getAll()', () => {
+        beforeEach(() => {
+            sinon.stub(db, 'collection').callsFake(() => {
+                return { find };
+            });
+
+            data = new BaseMongoDbData(db, ModelClass, validator);
+        });
+
+        afterEach(() => {
+            db.collection.restore();
+        });
+
+        it('to return empty array, when no todos', () => {
+            items = [];
+            data.getAll().then((result) => {
+                expect(result).to.be.eql(items);
+            });
+        });
+    });
+
+    describe('expect getById()', () => {
+        beforeEach(() => {
+            sinon.stub(db, 'collection').callsFake(() => {
+                return { findOne };
+            });
+
+            data = new BaseMongoDbData(db);
+        });
+
+        afterEach(() => {
+            db.collection.restore();
+        });
+
+        it('to return null, when no todos', (done) => {
+            const { ObjectID } = require('mongodb');
+            const id = new ObjectID().toHexString();
+            data.findById(id)
+                .then((item) => {
+                    expect(item).to.be.null;
+                    done();
+                });
+        });
+    });
 });

@@ -10,7 +10,7 @@ class BaseMongoDbData {
     }
 
     getAll() {
-        return this.collection.find().toArray();
+        return this.collection.find({}).toArray();
     }
 
     create(model) {
