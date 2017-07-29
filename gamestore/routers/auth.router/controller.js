@@ -21,6 +21,10 @@ class TodosController {
 
     signUp(req, res) {
         const bodyUser = req.body;
+         if ((bodyUser.password.length < 6) || (bodyUser.username.length < 3)) {
+            return res.redirect('/sign-up');
+         }
+
         this.data.users.findByUsername(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
@@ -34,6 +38,7 @@ class TodosController {
             .catch((err) => {
                 req.flash('error', err);
             });
+        return res;
     }
 }
 

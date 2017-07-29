@@ -1,9 +1,8 @@
 const BaseData = require('./base/base.data');
-const Game = require('../models/game.model');
 
 class GamesData extends BaseData {
     constructor(db) {
-        super(db, Game, Game);
+        super(db);
 
         this.collection = this.db.collection('gamestores');
     }

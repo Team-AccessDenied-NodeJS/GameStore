@@ -1,9 +1,8 @@
 const BaseData = require('./base/base.data');
-const User = require('../models/user.model');
 
 class UsersData extends BaseData {
     constructor(db) {
-        super(db, User, User);
+        super(db);
         this.collection = this.db.collection('users');
         this.shoppinglist = [];
         this.isAdmin = false;
