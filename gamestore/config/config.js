@@ -1,4 +1,4 @@
-const port = 3000;
+const port = 80;
 const connectionString = 'mongodb://localhost:27017/gamestore';
 const sessionSecret = 'Batman';
 

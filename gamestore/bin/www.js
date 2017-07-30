@@ -32,7 +32,7 @@ async()
     /**
      * Get port from environment and store in Express.
      */
-    const port = normalizePort(config.port || '3000');
+    const port = normalizePort(config.port || '80');
     app.set('port', port);
 
     /**
