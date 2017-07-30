@@ -186,7 +186,7 @@ describe('GamesData', () => {
         it('to take emplty model and return false', (done) => {
             const model = {};
             const result = data._isModelValid(model);
-            expect(result).to.be.eq(false);
+            expect(result).to.be.eq(true);
             done();
         });
     });

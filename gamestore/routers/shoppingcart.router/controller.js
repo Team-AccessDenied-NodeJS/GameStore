@@ -26,12 +26,9 @@ class ShoppingCartController {
         return this.controller.getSignInForm(req, res);
     }
     buy(req, res) {
-        console.log('inside buy');
         if (req.user) {
             const game = req.body.game;
             const index = req.user.shoppinglist.indexOf(game);
-            console.log(index);
-            console.log(req.user.shoppinglist[index]);
             if (index > -1) {
                 req.user.shoppinglist.splice(index, 1);
             }

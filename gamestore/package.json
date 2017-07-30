@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha test/unit/routers/shopping-cart-controller-tests.js && mocha test/unit/games-data-tests.js && mocha test/unit/games-data-tests.js && mocha test/unit/users-data-tests.js"
+    "test": "mocha test/unit/routers/shopping-cart-controller-tests.js && mocha test/unit/games-data-tests.js && mocha test/unit/games-data-tests.js && mocha test/unit/users-data-tests.js && mocha test/unit/routers/auth-controller-tests.js && mocha test/unit/routers/admin-controller-tests.js"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",

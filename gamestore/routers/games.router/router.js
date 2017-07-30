@@ -9,9 +9,9 @@ const attachTo = (app, data) => {
         return controller.search(req, res);
     });
 
-    app.post('/games', (req, res) => {
-        return controller.addGame(req, res);
-    });
+    // app.post('/games', (req, res) => {
+    //     return controller.addGame(req, res);
+    // });
 };
 
 module.exports = { attachTo };
