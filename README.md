@@ -1,6 +1,8 @@
 # GameStore
 _Teamwork project_
 
+[![Build Status](http://78.90.245.184:8080/buildStatus/icon?job=GameStoreApp)](http://192.168.1.100:8080/job/GameStoreApp/)
+
 ### Team Access Denied - TelerikAcademy Season 8
 
 #### Members:
