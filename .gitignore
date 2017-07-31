@@ -1,6 +1,9 @@
 # node_modules folders
 gamestore/node_modules/
+gamestore/coverage
 
 # PDF files
 gamestore.pdf
 *.pdf
+*.html
+*.png
