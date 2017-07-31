@@ -20,6 +20,7 @@ class TodosController {
     }
 
     signUp(req, res) {
+        console.log(req.body);
         const bodyUser = req.body;
          if ((bodyUser.password.length < 6) || (bodyUser.username.length < 3)) {
             return res.redirect('/sign-up');
@@ -28,7 +29,7 @@ class TodosController {
         this.data.users.findByUsername(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
-                    throw new Error('User already exists');
+                    return res.redirect('/sign-up');
                 }
                 return this.data.users.create(bodyUser);
             })
