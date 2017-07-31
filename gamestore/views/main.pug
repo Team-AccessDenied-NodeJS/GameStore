@@ -38,19 +38,19 @@ html(lang="en")
 							span.icon-bar
 							span.icon-bar
 							span.icon-bar
-						a.navbar-brand(href='/') GameStore
+						a.navbar-brand(href='/', id = 'home') GameStore
 					// Collect the nav links, forms, and other content for toggling
 					.collapse.navbar-collapse#bs-example-navbar-collapse-1
 						ul.nav.navbar-nav
-							li
+							li(id = 'about')
 								a(href='/about') About
-							li
+							li(id = 'games')
 								a(href='/games') Games
-							li
+							li(id = 'contact')
 								a(href='#') Contact	
 						ul.nav.navbar-nav.navbar-right
-							li 
+							li(id = 'sign-in')
 								a(href='/sign-in') Sign in
-							li
+							li(id = 'sign-up')
 								a(href='/sign-up') Sign up
 			block content

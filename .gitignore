@@ -4,3 +4,4 @@ gamestore/node_modules/
 # PDF files
 gamestore.pdf
 *.pdf
+*.pem

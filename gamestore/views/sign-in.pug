@@ -2,7 +2,7 @@ extends main
 block content
     //- != messages()
     form(action='/sign-in', method="POST")
-        input.form-control(type="text" name="username" placeholder="Enter username")
-        input.form-control(type="password" name="password" placeholder="Enter password")
+        input.form-control(type="text" name="username" placeholder="Enter username" value="")
+        input.form-control(type="password" name="password" placeholder="Enter password" value="")
         button.btn.btn-success
             | Sign In
