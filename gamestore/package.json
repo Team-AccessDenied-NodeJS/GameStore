@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "istanbul cover ./node_modules/mocha/bin/_mocha test/unit/**/*.js && istanbul cover ./node_modules/mocha/bin/_mocha test/integration/**/*.js && mocha test/browser/**/*.js --timeout 12000"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha test/unit/**/*.js && istanbul cover ./node_modules/mocha/bin/_mocha test/integration/**/*.js"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",
