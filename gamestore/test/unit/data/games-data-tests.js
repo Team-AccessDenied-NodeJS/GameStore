@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const GamesData = require('../../data/games.data');
+const GamesData = require('../../../data/games.data');
 const sinon = require('sinon');
 
 describe('GamesData', () => {
