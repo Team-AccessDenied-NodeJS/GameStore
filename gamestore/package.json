@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha test/**/**/*.js"
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha test/unit/**/*.js && istanbul cover ./node_modules/mocha/bin/_mocha test/integration/**/*.js && mocha test/browser/**/*.js --timeout 12000"
   },
   "dependencies": {
     "babel-eslint": "^7.2.3",
@@ -30,6 +30,7 @@
     "eslint": "^4.3.0",
     "eslint-config-google": "^0.9.1",
     "geckodriver": "^1.8.0",
+    "istanbul": "^0.4.5",
     "mocha": "^3.4.2",
     "selenium-webdriver": "^3.5.0",
     "sinon": "^2.4.1",
