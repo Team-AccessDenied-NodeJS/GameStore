@@ -18,8 +18,6 @@ block body
 							a(href='/about') About
 						li
 							a(href='/games') Games
-						li
-							a(href='#') Contact	
 					ul.nav.navbar-nav.navbar-right
 						//- For users
 						if user
@@ -52,7 +50,7 @@ block body
 						small &nbsp;&nbsp;&nbsp; price #{game.price}&nbsp;BGN
 			.row
 				.col-md-8
-					img(src=game.image) 
+					img(src=game.image style='height:400px') 
 					if user
 						unless user.admin
 							form(action='/add-to-cart', method="POST")

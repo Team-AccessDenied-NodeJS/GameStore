@@ -21,5 +21,19 @@ _Teamwork project_
 
 ### Description
 
-comming soon
+This is teamwork project assign by TelerikAcademy as part of NodeJS course.
 
+Project represents GameStore site where you can choose game/games and buy it/them.
+
+Back-end works with NodeJS, Express and MongoDB.
+
+There is public and private part.
+
+Rendering engine is Pug
+
+### Tests
+We have unit, integration and browser tests
+### Deployment
+Project is deployet at Amazon Web Services
+### Continious integration
+Achieved with Jenkins

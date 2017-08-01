@@ -11,7 +11,7 @@ describe('GamesData', () => {
 
     const ModelClass = class { };
 
-    let validator = null;
+    const validator = null;
 
     let games = [];
 
