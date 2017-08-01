@@ -1,6 +1,8 @@
 # GameStore
 _Teamwork project_
 
+[Website](http://access-denied.sytes.net/)
+
 [![Build Status](http://78.90.245.184:8080/buildStatus/icon?job=GameStoreApp)](http://78.90.245.184:8080/job/GameStoreApp/)
 
 ### Team Access Denied - TelerikAcademy Season 8
@@ -10,8 +12,6 @@ _Teamwork project_
 - [Daniel Mitkov](https://github.com/boda66)
 
 - [Pavel Purlantov](https://github.com/purlantov)
-
-- [Sevdalin Zhelyazkov](https://github.com/SevdalinZhelyazkov)
 
 ----------------------
 
